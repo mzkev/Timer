@@ -5,7 +5,7 @@ const TimersDashboard = React.createClass({
         <div className='column'>
           <EditableTimerList />
           <ToggleableTimerForm
-          isOpen={true}
+          isOpen={false}
           />
         </div>
       </div>
