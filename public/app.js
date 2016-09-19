@@ -117,3 +117,8 @@ const Timer = React.createClass({
     );
   },
 });
+
+ReactDOM.render(
+  <TimersDashboard />,
+  document.getElementById('content')
+);
