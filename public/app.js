@@ -36,6 +36,28 @@ const EditableTimerList = React.createClass({
   },
 });
 
+const EditableTimer = react.createClass({
+  render: function () {
+    if (this.props.editFormOpen) {
+      return (
+        <TimerForm
+          title={this.props.title}
+          project={this.props.project}
+          />
+      );
+    } else {
+      return (
+        <Timer
+          title={this.props.title}
+          project={this.props.project}
+          elapsed={this.props.elapsed}
+          runningSince={this.props.runningSince}
+        />
+      );
+    }
+  },
+});
+
 const TimerForm = React.createClass({
   render: function () {
     const submitText = this.props.title ? 'Update' : 'Create';
