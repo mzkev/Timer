@@ -1,12 +1,32 @@
 const TimersDashboard = React.createClass({
+  getInitialState: function () {
+    return (
+      timers: [
+        {
+          title: 'Practice squat',
+          project: 'Gym Chores',
+          id: uuid.v4(),
+          elapsed: 5456099,
+          runningSince: Date.now(),
+        },
+        {
+          title: 'Bake squash',
+          project: 'Kitchen Chores',
+          id: uuid.v4(),
+          elapsed: 1273998,
+          runningSince: null
+        },
+      ],
+    );
+  },
   render: function () {
     return (
       <div className='ui three column centered grid'>
         <div className='column'>
-          <EditableTimerList />
-          <ToggleableTimerForm
-          isOpen={false}
+          <EditableTimerList
+            timers={this.state.timers}
           />
+          <ToggleableTimerForm />
         </div>
       </div>
     );
