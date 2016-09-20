@@ -1,6 +1,6 @@
 const TimersDashboard = React.createClass({
   getInitialState: function () {
-    return (
+    return {
       timers: [
         {
           title: 'Practice squat',
@@ -14,10 +14,10 @@ const TimersDashboard = React.createClass({
           project: 'Kitchen Chores',
           id: uuid.v4(),
           elapsed: 1273998,
-          runningSince: null
+          runningSince: null,
         },
       ],
-    );
+    };
   },
   render: function () {
     return (
@@ -35,7 +35,7 @@ const TimersDashboard = React.createClass({
 
 const EditableTimerList = React.createClass({
   render: function () {
-    const timers = this.props.timers.map((timers) =>
+    const timers = this.props.timers.map((timer) =>
   (
     <EditableTimer
       key={timer.id}
