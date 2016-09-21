@@ -96,7 +96,7 @@ const EditableTimer = React.createClass({
 
 const TimerForm = React.createClass({
   handleSubmit: function () {
-    this.props.onFormSubmit()({
+    this.props.onFormSubmit({
       id: this.props.id,
       title: this.refs.title.value,
       project: this.refs.project.value,
