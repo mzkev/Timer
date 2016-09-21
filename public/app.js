@@ -71,6 +71,22 @@ const EditableTimer = React.createClass({
       editFormOpen: false,
     };
   },
+  handleEditClick: function () {
+    this.openForm();
+  },
+  handleFormClose: function () {
+    this.closeForm();
+  },
+  handleSubmit: function (timer) {
+    this.props.onFormSubmit(timer);
+    this.closeForm();
+  },
+  closeForm: function () {
+    this.setState({ editFormOpen: false });
+  },
+  openForm: function () {
+    this.setState({ editFormOpen: true });
+  },
   render: function () {
     if (this.state.editFormOpen) {
       return (
@@ -78,6 +94,8 @@ const EditableTimer = React.createClass({
           id={this.props.id}
           title={this.props.title}
           project={this.props.project}
+          onFormSubmit={this.handleSubmit}
+          onFormClose={this.handleFormClose}
           />
       );
     } else {
@@ -88,6 +106,7 @@ const EditableTimer = React.createClass({
           project={this.props.project}
           elapsed={this.props.elapsed}
           runningSince={this.props.runningSince}
+          onEditClick={this.handleEditClick}
         />
       );
     }
