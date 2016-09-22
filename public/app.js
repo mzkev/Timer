@@ -84,6 +84,8 @@ const EditableTimerList = React.createClass({
       runningSince={timer.runningSince}
       onFormSubmit={this.props.onFormSubmit}
       onTrashClick={this.props.onTrashClick}
+      onStartClick={this.props.onStartClick}
+      onStopClick={this.props.onStopClick}
     />
   ));
     return (
