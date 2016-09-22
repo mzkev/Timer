@@ -289,6 +289,30 @@ const Timer = React.createClass({
   },
 });
 
+const TimerActionButton = React.createClass({
+  render: function () {
+    if (this.props.timerIsRunning) {
+      return (
+        <div
+        className='ui bottom attached red basic button'
+        onClick={this.props.onStopClick}
+        >
+          Stop
+        </div>
+      );
+    } else {
+      return (
+        <div
+          className='ui bottom attached green basic button'
+          onClick={this.props.onStartClick}
+        >
+          Start
+        </div>
+      );
+    }
+  },
+});
+
 ReactDOM.render(
   <TimersDashboard />,
   document.getElementById('content')
