@@ -25,6 +25,9 @@ const TimersDashboard = React.createClass({
   handleEditFormSubmit: function (attrs) {
     this.updateTimer(attrs);
   },
+  handleTrashClick: function (timerId) {
+    this.deleteTimer(timerId);
+  },
   createTimer: function (timer) {
     const t = helpers.newTimer(timer);
     this.setState({
@@ -45,6 +48,11 @@ const TimersDashboard = React.createClass({
       }),
     });
   },
+  deleteTimer: function (timerId) {
+    this.setState({
+      timers: this.state.timers.filter(t => t.id !== timerId),
+    });
+  },
   render: function () {
     return (
       <div className='ui three column centered grid'>
@@ -52,6 +60,7 @@ const TimersDashboard = React.createClass({
           <EditableTimerList
             timers={this.state.timers}
             onFormSubmit={this.handleEditFormSubmit}
+            onTrashClick={this.handleTrashClick}
           />
           <ToggleableTimerForm
             onFormSubmit={this.handleCreateFormSubmit}
