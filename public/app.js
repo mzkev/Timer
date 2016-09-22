@@ -236,6 +236,12 @@ const Timer = React.createClass({
   componentWillUnmount: function () {
     clearInterval(this.forceUpdateInterval);
   },
+  handleStartClick: function () {
+    this.props.onStartClick(this.props.id);
+  },
+  handleStopClick: function () {
+    this.props.onStopClick(this.props.id);
+  },
   handleTrashClick: function () {
     this.props.onTrashClick(this.props.id);
   },
@@ -273,6 +279,11 @@ const Timer = React.createClass({
         <div className='ui bottom attached blue basic button'>
           Start
         </div>
+        <TimerActionButton
+          timerIsRunning={!!this.props.runningSince}
+          onStartClick={this.handleStartClick}
+          onStopClick={this.handleStopClick}
+        />
       </div>
     );
   },
